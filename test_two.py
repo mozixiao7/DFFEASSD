@@ -51,12 +51,6 @@ def test_model(device):
                                           "spoof" if labels[j].data.cpu().numpy() else "bonafide",
                                           score[j].item()))
 
-
-
-    eer_cm, min_tDCF = compute_eer_and_tdcf(os.path.join('/data2/tzc/ocspoof/test_two/raw3/fle_2021/','checkpoint_cm_score.txt'),
-                                            "/data2/tzc/")
-    return eer_cm, min_tDCF
-
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--gpu", type=str, help="GPU index", default="7")
